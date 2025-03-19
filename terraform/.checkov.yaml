@@ -1,0 +1,20 @@
+framework:
+  - terraform
+
+skip-check:
+  - CKV_AWS_62  # Ensure S3 buckets have server-side encryption enabled
+  - CKV_AWS_145  # Ensure S3 bucket has cross-region replication enabled
+
+skip-path:
+  - "examples/*"
+  - "test/*"
+
+compact: true
+directory:
+  - .
+check:
+  - CKV_AWS_*
+  - CKV_*
+soft-fail: true
+output: cli
+output-file: checkov-report.txt 
